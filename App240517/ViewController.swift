@@ -46,10 +46,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(patternImage: UIImage(named: "background01")!)
+        configureResetButton()
         setButtonImages()
         setEmotionLabel()
         configrueEmotionCount()
        
+    }
+    
+    func configureResetButton(){
+        resetButton.titleLabel?.text = "RESET"
+        resetButton.backgroundColor = .brown
+        resetButton.layer.cornerRadius = 8
+        resetButton.setTitleColor(.white, for: .normal)
     }
     
     //버튼 태그값 초기 설정
