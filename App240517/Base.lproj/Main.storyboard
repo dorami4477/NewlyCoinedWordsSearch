@@ -217,11 +217,22 @@
                                     <constraint firstAttribute="height" constant="368.67000000000002" id="Qwa-rf-fvK"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUH-BY-5lR">
+                                <rect key="frame" x="40" y="650.33333333333337" width="313" height="34.333333333333371"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="resetButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Y9c-XJ-2Cb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mUH-BY-5lR" secondAttribute="trailing" constant="40" id="2XM-mB-mYa"/>
+                            <constraint firstItem="mUH-BY-5lR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="7IH-pz-ufu"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="q1c-bu-vBI" secondAttribute="trailing" constant="40" id="Apn-vg-Gb3"/>
+                            <constraint firstItem="mUH-BY-5lR" firstAttribute="top" secondItem="q1c-bu-vBI" secondAttribute="bottom" constant="40" id="Fek-N5-2uC"/>
                             <constraint firstItem="q1c-bu-vBI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="Xrm-22-8Yt"/>
                             <constraint firstItem="q1c-bu-vBI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="wp2-or-gUz"/>
                         </constraints>
@@ -248,6 +259,7 @@
                         <outlet property="emotionLabel07" destination="V4X-EJ-lbp" id="K1Y-sX-YId"/>
                         <outlet property="emotionLabel08" destination="vdF-Rj-ZyC" id="dKX-g0-v6I"/>
                         <outlet property="emotionLabel09" destination="u6J-Hv-mqE" id="x4I-FU-rde"/>
+                        <outlet property="resetButton" destination="mUH-BY-5lR" id="cWS-2i-Pqh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -30,6 +30,9 @@ class ViewController: UIViewController {
     @IBOutlet var emotionLabel08: UILabel!
     @IBOutlet var emotionLabel09: UILabel!
     
+    @IBOutlet var resetButton: UIButton!
+
+    
     // 감정 버튼 배열에 담기
     lazy var emtionbuttons:[UIButton] = [emotionButton01, emotionButton02, emotionButton03, emotionButton04, emotionButton05, emotionButton06, emotionButton07, emotionButton08, emotionButton09]
     
@@ -45,6 +48,15 @@ class ViewController: UIViewController {
         view.backgroundColor = UIColor(patternImage: UIImage(named: "background01")!)
         setButtonImages()
         setEmotionLabel()
+        configrueEmotionCount()
+       
+    }
+    
+    //버튼 태그값 초기 설정
+    func configrueEmotionCount(){
+        for i in 0..<emtionbuttons.count{
+            emtionbuttons[i].tag = UserDefaults.standard.integer(forKey: "emotion\(i)")
+        }
     }
 
     //button이미지 세팅
@@ -58,9 +70,10 @@ class ViewController: UIViewController {
     //label text 초기 세팅
     func setEmotionLabel(){
         var i = 0
+        
         emotionLabels.forEach {
             $0.textAlignment = .center
-            $0.text = "\(emtionWords[i]) 0"
+            $0.text = "\(emtionWords[i]) \(UserDefaults.standard.integer(forKey: "emotion\(i)"))"
             i += 1
         }
     }
@@ -68,11 +81,26 @@ class ViewController: UIViewController {
     //감정 버튼 클릭시 액션
     @IBAction func emotionButtonClicked(_ sender: UIButton) {
         let tag = sender.tag
+        
         guard let index = emtionbuttons.firstIndex(of: sender) else { return }
-
+        print(index)
         emotionLabels[index].text = "\(emtionWords[index]) \(tag + 1)"
         sender.tag += 1
+        UserDefaults.standard.set(sender.tag, forKey: "emotion\(index)")
+        
     }
     
+    //리셋 버튼 클릭 액션
+    @IBAction func resetButtonClicked(_ sender: UIButton) {
+        var i = 0
+        //라벨 값 & UserDefaults 값 초기화
+        emotionLabels.forEach {
+            $0.textAlignment = .center
+            $0.text = "\(emtionWords[i]) 0"
+            UserDefaults.standard.set(0, forKey: "emotion\(i)")
+            i += 1
+        }
+        
+    }
 }
 
